@@ -22,51 +22,33 @@
   <div class="hr10"></div>
   <div class="Column-100">
     <div class="iTag f88 fl">
-      <dl class="style">
-        <dt><span>Style</span><br>
-          <b>设计风格</b></dt>
-        <dd><a href="#" title="现代简约" target="_blank" rel="nofollow">现代简约</a></dd>
-        <dd><a href="#" title="简欧" target="_blank" rel="nofollow">简欧</a></dd>
-        <dd><a href="#" title="田园" target="_blank" rel="nofollow">田园</a></dd>
-        <dd><a href="#" title="地中海" target="_blank" rel="nofollow">地中海</a></dd>
-        <dd><a href="#" title="欧式" target="_blank" rel="nofollow">欧式</a></dd>
-        <dd><a href="#" title="中式" target="_blank" rel="nofollow">中式</a></dd>
-        <dd><a href="#" title="后现代" target="_blank" rel="nofollow">后现代</a></dd>
-        <dd><a href="#" title="美式" target="_blank" rel="nofollow">美式</a></dd>
-        <dd><a href="#" title="简美" target="_blank" rel="nofollow">简美</a></dd>
-        <dd><a href="#" title="其他" target="_blank" rel="nofollow">其他</a></dd>
-      </dl>
-      <dl class="type">
-        <dt><span>Type</span><br>
-          <b>空间效果</b></dt>
-        <dd><a href="#" title="小户型" target="_blank" rel="nofollow">小户型</a></dd>
-        <dd><a href="#" title="二居" target="_blank" rel="nofollow">二居</a></dd>
-        <dd><a href="#" title="三居" target="_blank" rel="nofollow">三居</a></dd>
-        <dd><a href="#" title="复式" target="_blank" rel="nofollow">复式</a></dd>
-        <dd><a href="#" title="大户型" target="_blank" rel="nofollow">大户型</a></dd>
-        <dd><a href="#" title="样板间" target="_blank" rel="nofollow">样板间</a></dd>
-        <dd><a href="#" title="商业空间" target="_blank" rel="nofollow">商业空间</a></dd>
-        <dd><a href="#" title="其他" target="_blank" rel="nofollow">其他</a></dd>
-      </dl>
-      <dl class="area">
-        <dt><span>Area</span><br>
-          <b>装修面积</b></dt>
-        <dd><a href="#" title="80㎡以下" target="_blank" rel="nofollow">80㎡以下</a></dd>
-        <dd><a href="#" title="80-120㎡" target="_blank" rel="nofollow">80-120㎡</a></dd>
-        <dd><a href="#" title="120-180㎡" target="_blank" rel="nofollow">120-180㎡</a></dd>
-        <dd><a href="#" title="180-250㎡" target="_blank" rel="nofollow">180-250㎡</a></dd>
-        <dd><a href="#" title="250-500㎡" target="_blank" rel="nofollow">250-500㎡</a></dd>
-        <dd><a href="#" title="500㎡以上" target="_blank" rel="nofollow">500㎡以上</a></dd>
-      </dl>
-      <dl class="price">
-        <dt><span>Design</span><br>
-          <b>别墅设计</b></dt>
-        <dd><a href="#" title="中式典雅" target="_blank" rel="nofollow">中式典雅</a></dd>
-        <dd><a href="#" title="北美风情" target="_blank" rel="nofollow">北美风情</a></dd>
-        <dd><a href="#" title="欧陆传奇" target="_blank" rel="nofollow">欧陆传奇</a></dd>
-        <dd><a href="#" title="现代奢华" target="_blank" rel="nofollow">现代奢华</a></dd>
-        <dd><a href="#" title="东南亚自然之美" target="_blank" rel="nofollow">东南亚自然之美</a></dd>
-      </dl>
+	<?php
+	$classid = 9; //装修案例的栏目编号
+	$anli_arr = array(
+		'sjfg'=>array('cn'=>'设计风格','en'=>'Style'),
+		'kjxg'=>array('cn'=>'空间效果','en'=>'Type'),
+		'zxmj'=>array('cn'=>'装修面积','en'=>'Area'),
+		'bssj'=>array('cn'=>'别墅设计','en'=>'Design'),
+	);
+	foreach ($anli_arr as $fieldname=>$titnames) {
+		echo '<dl class="'.$titnames['en'].'">';
+		echo '<dt><span>'.$titnames['en'].'</span><br>';
+		echo '<b>'.$titnames['cn'].'</b></dt>';
+		
+		$row = $dosql->GetOne("SELECT * FROM `#@__diyfield` WHERE fieldname='".$fieldname."'");
+		$fieldsel = explode(',', $row['fieldsel']);
+		foreach($fieldsel as $k=>$fieldsel_arr) {
+			$fieldsel_val = explode('=', $fieldsel_arr);
+			//$fieldsel_val[0] 此为显示的值   $fieldsel_val[1] 此为字段的值
+			
+			if ($cfg_isreurl!='Y') $gourl = 'list_image.php?cid='.$classid.'&'.$fieldname.'='.$fieldsel_val[1];
+			else $gourl = 'list_image-'.$classid.'-1.html'; //伪静态没写, 待完成
+			
+			echo '<dd><a href="'.$gourl.'" title="'.$fieldsel_val[0].'" target="_blank" rel="nofollow">'.$fieldsel_val[0].'</a></dd>';
+		}
+		echo '</dl>';
+	}
+	?>
     </div>
   </div>
   <div class="hr10"></div>
