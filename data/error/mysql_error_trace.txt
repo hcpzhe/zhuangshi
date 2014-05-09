@@ -1,0 +1,304 @@
+﻿Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT varvalue FROM `webconfig` WHERE varname='cfg_webname'</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `failedlogin` WHERE username='admin'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `admin` WHERE username='admin'</font>
+
+
+Page: /wqmgr/mgr/login.php
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `failedlogin` WHERE username='admin'</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `nav` WHERE parentid=1 AND checkinfo=true ORDER BY orderid ASC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE classid=12 AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=1</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE classid=4 AND flag LIKE '%h%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infolist` WHERE (classid=4 or parentid=4) AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=3</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `info` WHERE classid=10</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `infoimg` WHERE (classid=5 OR parentstr LIKE '%,5,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC LIMIT 0,18</font>
+
+
+Page: /wqmgr/
+Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
+
+

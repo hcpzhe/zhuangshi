@@ -1,0 +1,588 @@
+DROP TABLE IF EXISTS `#@__admanage`;
+CREATE TABLE IF NOT EXISTS `#@__admanage` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(80) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `admode` char(10) NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `adtext` text NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__admin`;
+CREATE TABLE IF NOT EXISTS `#@__admin` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `password` char(32) NOT NULL,
+  `loginip` char(20) NOT NULL,
+  `logintime` int(10) unsigned NOT NULL,
+  `levelname` tinyint(1) unsigned NOT NULL,
+  `checkadmin` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `#@__adtype`;
+CREATE TABLE IF NOT EXISTS `#@__adtype` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `width` smallint(5) unsigned NOT NULL,
+  `height` smallint(5) unsigned NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__diyfield`;
+CREATE TABLE IF NOT EXISTS `#@__diyfield` (
+  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `infotype` tinyint(1) unsigned NOT NULL COMMENT '所属模型',
+  `fieldname` varchar(30) NOT NULL COMMENT '字段名称',
+  `fieldtitle` varchar(30) NOT NULL COMMENT '字段标题',
+  `fielddesc` varchar(255) NOT NULL COMMENT '字段提示',
+  `fieldtype` varchar(30) NOT NULL COMMENT '字段类型',
+  `fieldlong` varchar(10) NOT NULL COMMENT '字段长度',
+  `fieldsel` varchar(255) NOT NULL COMMENT '字段选项值',
+  `fieldcheck` varchar(80) NOT NULL COMMENT '校验正则',
+  `fieldcback` varchar(30) NOT NULL COMMENT '未通过提示',
+  `orderid` smallint(6) NOT NULL COMMENT '排列排序',
+  `checkinfo` enum('true','false') NOT NULL COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__diymenu`;
+CREATE TABLE IF NOT EXISTS `#@__diymenu` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__failedlogin`;
+CREATE TABLE IF NOT EXISTS `#@__failedlogin` (
+  `username` char(30) NOT NULL,
+  `ip` char(15) NOT NULL,
+  `time` int(10) unsigned NOT NULL,
+  `num` tinyint(1) NOT NULL,
+  `isadmin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__getmode`;
+CREATE TABLE IF NOT EXISTS `#@__getmode` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goods`;
+CREATE TABLE IF NOT EXISTS `#@__goods` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(80) NOT NULL,
+  `brandid` smallint(5) NOT NULL,
+  `brandpid` smallint(5) NOT NULL,
+  `brandpstr` varchar(80) NOT NULL,
+  `title` varchar(80) NOT NULL,
+  `colorval` char(10) NOT NULL,
+  `boldval` char(10) NOT NULL,
+  `flag` varchar(30) NOT NULL,
+  `goodsid` varchar(30) NOT NULL,
+  `payfreight` enum('0','1') NOT NULL,
+  `weight` varchar(10) NOT NULL,
+  `attrid` varchar(50) NOT NULL,
+  `attrvalue` varchar(200) NOT NULL,
+  `marketprice` char(10) NOT NULL,
+  `salesprice` char(10) NOT NULL,
+  `memberprice` char(10) NOT NULL,
+  `housenum` smallint(5) unsigned NOT NULL,
+  `housewarn` enum('true','false') NOT NULL,
+  `warnnum` smallint(5) unsigned NOT NULL,
+  `integral` char(10) NOT NULL,
+  `author` varchar(30) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `keywords` varchar(30) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `picarr` text NOT NULL,
+  `hits` int(10) unsigned NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  `delstate` set('true') NOT NULL,
+  `deltime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goodsattr`;
+CREATE TABLE IF NOT EXISTS `#@__goodsattr` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `classname` varchar(30) NOT NULL,
+  `orderid` mediumint(8) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goodsbrand`;
+CREATE TABLE IF NOT EXISTS `#@__goodsbrand` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` mediumint(8) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `orderid` mediumint(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goodsflag`;
+CREATE TABLE IF NOT EXISTS `#@__goodsflag` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `flag` varchar(30) NOT NULL,
+  `flagname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goodsorder`;
+CREATE TABLE IF NOT EXISTS `#@__goodsorder` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `attrvalue` text,
+  `truename` varchar(30) DEFAULT NULL,
+  `cardtype` enum('0','1','2') NOT NULL,
+  `cardnum` varchar(30) NOT NULL,
+  `telephone` varchar(30) NOT NULL,
+  `zipcode` varchar(30) NOT NULL,
+  `province` varchar(30) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `address` varchar(80) NOT NULL,
+  `postid` varchar(50) NOT NULL,
+  `postarea` mediumint(8) NOT NULL,
+  `postmode` smallint(5) NOT NULL,
+  `cost` int(10) NOT NULL,
+  `paymode` smallint(5) NOT NULL,
+  `getmode` smallint(5) NOT NULL,
+  `weight` varchar(10) NOT NULL,
+  `orderamount` int(10) NOT NULL,
+  `moneytyle` int(10) NOT NULL,
+  `integral` smallint(5) unsigned NOT NULL,
+  `buyremark` text,
+  `sendremark` text,
+  `posttime` int(10) unsigned NOT NULL,
+  `orderid` mediumint(10) unsigned NOT NULL,
+  `checkinfo` varchar(255) NOT NULL,
+  `core` set('true') NOT NULL,
+  `delstate` set('true') NOT NULL,
+  `deltime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goodsreview`;
+CREATE TABLE IF NOT EXISTS `#@__goodsreview` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `goodsid` int(10) unsigned NOT NULL,
+  `nickname` varchar(30) NOT NULL,
+  `content` text NOT NULL,
+  `ip` char(20) NOT NULL,
+  `orderid` mediumint(8) unsigned NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__goodstype`;
+CREATE TABLE IF NOT EXISTS `#@__goodstype` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` mediumint(8) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `attrstr` varchar(50) NOT NULL,
+  `picurl` varchar(255) DEFAULT NULL,
+  `linkurl` varchar(255) DEFAULT NULL,
+  `orderid` mediumint(8) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__info`;
+CREATE TABLE IF NOT EXISTS `#@__info` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `mainid` smallint(5) NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__infoclass`;
+CREATE TABLE IF NOT EXISTS `#@__infoclass` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `infotype` tinyint(1) unsigned NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `seotitle` varchar(80) NOT NULL,
+  `keywords` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  `adminmenu` set('true') NOT NULL,
+  `menulevel` tinyint(2) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__infoflag`;
+CREATE TABLE IF NOT EXISTS `#@__infoflag` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `flag` varchar(30) NOT NULL,
+  `flagname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__infoimg`;
+CREATE TABLE IF NOT EXISTS `#@__infoimg` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(80) NOT NULL,
+  `mainid` smallint(5) NOT NULL,
+  `mainpid` smallint(5) NOT NULL,
+  `mainpstr` varchar(80) NOT NULL,
+  `title` varchar(80) NOT NULL,
+  `colorval` char(10) NOT NULL,
+  `boldval` char(10) NOT NULL,
+  `flag` varchar(30) NOT NULL,
+  `size` char(20) NOT NULL,
+  `price` char(10) NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `keywords` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `picarr` text NOT NULL,
+  `hits` mediumint(8) unsigned NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `posttime` int(10) NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  `delstate` set('true') NOT NULL DEFAULT '',
+  `deltime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__infolist`;
+CREATE TABLE IF NOT EXISTS `#@__infolist` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(80) NOT NULL,
+  `mainid` smallint(5) NOT NULL,
+  `mainpid` smallint(5) NOT NULL,
+  `mainpstr` varchar(80) NOT NULL,
+  `title` varchar(80) NOT NULL,
+  `colorval` char(10) NOT NULL,
+  `boldval` char(10) NOT NULL,
+  `flag` varchar(30) NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `keywords` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `picarr` text NOT NULL,
+  `hits` mediumint(8) unsigned NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `posttime` int(10) NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  `delstate` set('true') NOT NULL,
+  `deltime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__job`;
+CREATE TABLE IF NOT EXISTS `#@__job` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL COMMENT '位岗名称',
+  `jobplace` varchar(80) NOT NULL COMMENT '工作地点',
+  `jobdescription` varchar(50) NOT NULL COMMENT '工作性质',
+  `employ` smallint(5) unsigned NOT NULL COMMENT '招聘人数',
+  `jobsex` enum('0','1','2') NOT NULL COMMENT '性别要求',
+  `treatment` varchar(50) NOT NULL COMMENT '工资待遇',
+  `usefullife` varchar(50) NOT NULL COMMENT '有效期',
+  `experience` varchar(50) NOT NULL COMMENT '工作经验',
+  `education` varchar(80) NOT NULL COMMENT '学历要求',
+  `joblang` varchar(50) NOT NULL COMMENT '言语能力',
+  `content` mediumtext NOT NULL COMMENT '详细内容',
+  `orderid` mediumint(8) unsigned NOT NULL COMMENT '排列排序',
+  `posttime` int(10) unsigned NOT NULL COMMENT '更新时间',
+  `checkinfo` enum('true','false') NOT NULL COMMENT '审核状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__lnk`;
+CREATE TABLE IF NOT EXISTS `#@__lnk` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `lnkname` varchar(30) NOT NULL,
+  `lnklink` varchar(50) NOT NULL,
+  `lnkico` varchar(50) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__maintype`;
+CREATE TABLE IF NOT EXISTS `#@__maintype` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__member`;
+CREATE TABLE IF NOT EXISTS `#@__member` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `password` char(32) NOT NULL,
+  `truename` varchar(30) NOT NULL,
+  `sex` enum('0','1') NOT NULL,
+  `birthdate` date DEFAULT NULL,
+  `province` varchar(30) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `telephone` varchar(30) NOT NULL,
+  `zipcode` varchar(10) NOT NULL,
+  `cardtype` enum('0','1') NOT NULL,
+  `cardnum` varchar(30) NOT NULL,
+  `showinfo` varchar(100) DEFAULT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `level` smallint(5) unsigned NOT NULL,
+  `integral` smallint(5) unsigned NOT NULL,
+  `regtime` int(10) unsigned NOT NULL,
+  `regip` char(20) NOT NULL,
+  `logintime` int(10) unsigned NOT NULL,
+  `loginip` char(20) NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__message`;
+CREATE TABLE IF NOT EXISTS `#@__message` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(30) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `htop` set('true') NOT NULL,
+  `rtop` set('true') NOT NULL,
+  `ip` char(20) NOT NULL,
+  `recont` text NOT NULL,
+  `retime` int(10) unsigned NOT NULL,
+  `orderid` mediumint(8) unsigned NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__nav`;
+CREATE TABLE IF NOT EXISTS `#@__nav` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `relinkurl` varchar(255) NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__paymode`;
+CREATE TABLE IF NOT EXISTS `#@__paymode` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__postarea`;
+CREATE TABLE IF NOT EXISTS `#@__postarea` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` int(10) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `freight` float NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__postmode`;
+CREATE TABLE IF NOT EXISTS `#@__postmode` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__soft`;
+CREATE TABLE IF NOT EXISTS `#@__soft` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(80) NOT NULL,
+  `mainid` smallint(5) NOT NULL,
+  `mainpid` smallint(5) NOT NULL,
+  `mainpstr` varchar(80) NOT NULL,
+  `title` varchar(80) NOT NULL,
+  `colorval` char(10) NOT NULL,
+  `boldval` char(10) NOT NULL,
+  `flag` varchar(30) NOT NULL,
+  `filetype` char(4) NOT NULL,
+  `softtype` char(10) NOT NULL,
+  `language` char(10) NOT NULL,
+  `accredit` char(10) NOT NULL,
+  `softsize` varchar(10) NOT NULL,
+  `unit` char(4) NOT NULL,
+  `runos` varchar(50) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `demourl` varchar(255) NOT NULL,
+  `dlurl` varchar(255) NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `keywords` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `picarr` text NOT NULL,
+  `hits` mediumint(8) unsigned NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  `delstate` set('true') NOT NULL DEFAULT '',
+  `deltime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__uploads`;
+CREATE TABLE IF NOT EXISTS `#@__uploads` (
+  `id` mediumint(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `path` varchar(100) NOT NULL,
+  `size` int(10) NOT NULL,
+  `type` enum('image','soft','media') NOT NULL,
+  `posttime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__vote`;
+CREATE TABLE IF NOT EXISTS `#@__vote` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL,
+  `content` text NOT NULL,
+  `starttime` int(10) unsigned NOT NULL,
+  `endtime` int(10) unsigned NOT NULL,
+  `isguest` enum('true','false') NOT NULL,
+  `isview` enum('true','false') NOT NULL,
+  `intval` int(10) unsigned NOT NULL,
+  `isradio` tinyint(1) unsigned NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__votedata`;
+CREATE TABLE IF NOT EXISTS `#@__votedata` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `voteid` smallint(6) unsigned NOT NULL COMMENT '投票id',
+  `optionid` text NOT NULL COMMENT '选票id',
+  `userid` int(10) unsigned NOT NULL COMMENT '投票人id',
+  `posttime` int(10) unsigned NOT NULL COMMENT '投票时间',
+  `ip` varchar(30) NOT NULL COMMENT '投票ip',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__voteoption`;
+CREATE TABLE IF NOT EXISTS `#@__voteoption` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '投票选项id',
+  `voteid` smallint(6) unsigned NOT NULL COMMENT '投票id',
+  `options` varchar(30) NOT NULL COMMENT '投票选项',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__webconfig`;
+CREATE TABLE IF NOT EXISTS `#@__webconfig` (
+  `varname` varchar(50) NOT NULL DEFAULT '',
+  `varinfo` varchar(80) NOT NULL DEFAULT '',
+  `vargroup` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `vartype` char(10) NOT NULL DEFAULT 'string',
+  `varvalue` text,
+  `orderid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`varname`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__weblink`;
+CREATE TABLE IF NOT EXISTS `#@__weblink` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classid` smallint(5) unsigned NOT NULL,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(80) NOT NULL,
+  `webname` varchar(30) NOT NULL,
+  `webnote` varchar(200) NOT NULL,
+  `picurl` varchar(100) NOT NULL,
+  `linkurl` varchar(255) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `posttime` int(10) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `#@__weblinktype`;
+CREATE TABLE IF NOT EXISTS `#@__weblinktype` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(5) unsigned NOT NULL,
+  `parentstr` varchar(50) NOT NULL,
+  `classname` varchar(30) NOT NULL,
+  `orderid` smallint(5) unsigned NOT NULL,
+  `checkinfo` enum('true','false') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+INSERT INTO `#@__maintype` (`id`, `parentid`, `parentstr`, `classname`, `orderid`, `checkinfo`) VALUES
+(1, 0, '0,', '中文', 1, 'true'),
+(2, 0, '0,', 'English', 2, 'true');
+(3, 0, '0,', '日本語', 3, 'false');
+(4, 0, '0,', '한국의', 4, 'false');
+
+INSERT INTO `#@__weblinktype` (`id`, `parentid`, `parentstr`, `classname`, `orderid`, `checkinfo`) VALUES
+(1, 0, '0,', '中文分类', 1, 'true'),
+(2, 0, '0,', 'English Category', 1, 'true');
+
+INSERT INTO `#@__weblink` (`id`, `classid`, `parentid`, `parentstr`, `webname`, `webnote`, `picurl`, `linkurl`, `orderid`, `posttime`, `checkinfo`) VALUES
+(1, 1, 0, '0,', '万谦网络', '洛阳市万谦网络科技有限公司', '', 'http://www.wqit.net/', 3, 1326770806, 'true'),
+(2, 1, 0, '0,', '北街小巷', '开心工作，快乐生活', '', 'http://blog.upall.cn/', 3, 1326770806, 'true'),

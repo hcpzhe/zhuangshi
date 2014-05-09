@@ -1,0 +1,45 @@
+<?php if(!defined('IN_BKUP')) exit("请从正确的路径访问！"); ?>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mgr_table">
+	<tr align="center" class="mgr_tr" onmouseover="this.className='mgr_tr_on'" onmouseout="this.className='mgr_tr'">
+		<td height="200"><?php
+		if($url_forward=='-1' || $url_forward=='')
+		{
+			echo $msg;
+		?>
+			</br>
+			</br>
+			<a href="javascript:history.go(-1);">[点这里返回上一页]</a>
+			<?php
+		}
+
+		else if($url_forward == "close")
+		{
+			echo $msg;
+		?>
+			</br>
+			</br>
+			<a href="javascript:window.close();">[点这里关闭本页]</a>
+			<?php
+		}
+
+		else if($url_forward)
+		{
+		?>
+			<img src="templets/images/loading.gif"> </br>
+			</br>
+			<?php echo $msg; ?> </br>
+			</br>
+			<a href="<?php echo $url_forward; ?>">[如果您的浏览器没有自动跳转，请点击这里]</a>
+			<script type="text/javascript">
+		function redirect(url){
+			location.href = url;
+		}
+		setTimeout("redirect('<?php echo $url_forward; ?>');", <?php echo $ms; ?>);
+		</script>
+			<?php 
+		}
+		?></td>
+	</tr>
+</table>
+<div class="mgr_divb"> </div>
