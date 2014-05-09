@@ -20,76 +20,35 @@
 
 <div class="sTag pTag f88">
 <div class="iIcon ht"><em>热门标签</em><i>Tag</i></div>
-<dl class="style">
-    <dt><span>Style</span><br><b>设计风格</b></dt>
-     
-    <a href="#" title="现代简约" target="_blank" rel="nofollow">现代简约</a>
-     
-    <a href="#" title="简欧" target="_blank" rel="nofollow" class="col">简欧</a>
-     
-    <a href="#" title="田园" target="_blank" rel="nofollow" class="col">田园</a>
-     
-    <a href="#" title="地中海" target="_blank" rel="nofollow">地中海</a>
-     
-    <a href="#" title="欧式" target="_blank" rel="nofollow" class="col">欧式</a>
-     
-    <a href="#" title="中式" target="_blank" rel="nofollow" class="col">中式</a>
-     
-    <a href="#" title="后现代" target="_blank" rel="nofollow">后现代</a>
-     
-    <a href="#" title="美式" target="_blank" rel="nofollow" class="col">美式</a>
-     
-    <a href="#" title="简美" target="_blank" rel="nofollow" class="col">简美</a>
-     
-    <a href="#" title="其他" target="_blank" rel="nofollow">其他</a>
-    </dl>
-<dl class="type">
-    <dt><span>Type</span><br><b>空间效果</b></dt>
-     
-    <a href="#" title="小户型" target="_blank" rel="nofollow">小户型</a>
-     
-    <a href="#" title="二居" target="_blank" rel="nofollow" class="col">二居</a>
-     
-    <a href="#" title="三居" target="_blank" rel="nofollow" class="col">三居</a>
-     
-    <a href="#" title="复式" target="_blank" rel="nofollow">复式</a>
-     
-    <a href="#" title="大户型" target="_blank" rel="nofollow" class="col">大户型</a>
-     
-    <a href="#" title="样板间" target="_blank" rel="nofollow" class="col">样板间</a>
-     
-    <a href="#" title="商业空间" target="_blank" rel="nofollow">商业空间</a>
-     
-    <a href="#" title="其他" target="_blank" rel="nofollow" class="col">其他</a>
-    </dl>
-<dl class="area">
-    <dt><span>Area</span><br><b>装修面积</b></dt>
-     
-    <a href="#" title="80㎡以下" target="_blank" rel="nofollow">80㎡以下</a>
-     
-    <a href="#" title="80-120㎡" target="_blank" rel="nofollow">80-120㎡</a>
-     
-    <a href="#" title="120-180㎡" target="_blank" rel="nofollow">120-180㎡</a>
-     
-    <a href="#" title="180-250㎡" target="_blank" rel="nofollow">180-250㎡</a>
-     
-    <a href="#" title="250-500㎡" target="_blank" rel="nofollow">250-500㎡</a>
-     
-    <a href="#" title="500㎡以上" target="_blank" rel="nofollow">500㎡以上</a>
-    </dl>
-<dl class="price">
-    <dt><span>Design</span><br><b>别墅设计</b></dt>
-     
-    <a href="#" title="中式典雅" target="_blank" rel="nofollow">中式典雅</a>
-     
-    <a href="#" title="北美风情" target="_blank" rel="nofollow">北美风情</a>
-     
-    <a href="#" title="欧陆传奇" target="_blank" rel="nofollow">欧陆传奇</a>
-     
-    <a href="#" title="现代奢华" target="_blank" rel="nofollow">现代奢华</a>
-     
-    <a href="#" title="东南亚自然之美" target="_blank" rel="nofollow">东南亚自然之美</a>
-    </dl>
+	<?php
+	$classid = 9; //装修案例的栏目编号
+	$anli_arr = array(
+		'sjfg'=>array('cn'=>'设计风格','en'=>'Style','class'=>'style'),
+		'kjxg'=>array('cn'=>'空间效果','en'=>'Type','class'=>'type'),
+		'zxmj'=>array('cn'=>'装修面积','en'=>'Area','class'=>'area'),
+		'bssj'=>array('cn'=>'别墅设计','en'=>'Design','class'=>'price'),
+	);
+	foreach ($anli_arr as $fieldname=>$titnames) {
+		echo '<dl class="'.$titnames['class'].'">';
+		echo '<dt><span>'.$titnames['en'].'</span><br><b>'.$titnames['cn'].'</b></dt>';
+		
+		$row = $dosql->GetOne("SELECT * FROM `#@__diyfield` WHERE fieldname='".$fieldname."'");
+		$fieldsel = explode(',', $row['fieldsel']);
+		$tmp_i = 0;
+		foreach($fieldsel as $k=>$fieldsel_arr) {
+			$fieldsel_val = explode('=', $fieldsel_arr);
+			//$fieldsel_val[0] 此为显示的值   $fieldsel_val[1] 此为字段的值
+			
+			if ($cfg_isreurl!='Y') $gourl = 'list_image.php?cid='.$classid.'&'.$fieldname.'='.$fieldsel_val[1];
+			else $gourl = 'list_image-'.$classid.'-1.html'; //伪静态没写, 待完成
+			
+			$tmp_str = (@$tmp_i%3 === 0) ? '' : ' class="col"';
+			$tmp_i++;
+			echo '<a href="'.$gourl.'" title="'.$fieldsel_val[0].'" target="_blank" rel="nofollow"'.$tmp_str.'>'.$fieldsel_val[0].'</a>';
+		}
+		echo '</dl>';
+	}
+	?>
 </div>
 <div class="hr10"></div><div class="pSer">
 <a href="#" title="委托设计" target="_blank" rel="nofollow" class="order">委托设计</a>

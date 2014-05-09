@@ -25,13 +25,13 @@
 	<?php
 	$classid = 9; //装修案例的栏目编号
 	$anli_arr = array(
-		'sjfg'=>array('cn'=>'设计风格','en'=>'Style'),
-		'kjxg'=>array('cn'=>'空间效果','en'=>'Type'),
-		'zxmj'=>array('cn'=>'装修面积','en'=>'Area'),
-		'bssj'=>array('cn'=>'别墅设计','en'=>'Design'),
+		'sjfg'=>array('cn'=>'设计风格','en'=>'Style','class'=>'style'),
+		'kjxg'=>array('cn'=>'空间效果','en'=>'Type','class'=>'type'),
+		'zxmj'=>array('cn'=>'装修面积','en'=>'Area','class'=>'area'),
+		'bssj'=>array('cn'=>'别墅设计','en'=>'Design','class'=>'price'),
 	);
 	foreach ($anli_arr as $fieldname=>$titnames) {
-		echo '<dl class="'.$titnames['en'].'">';
+		echo '<dl class="'.$titnames['class'].'">';
 		echo '<dt><span>'.$titnames['en'].'</span><br>';
 		echo '<b>'.$titnames['cn'].'</b></dt>';
 		
