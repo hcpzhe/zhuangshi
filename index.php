@@ -151,22 +151,31 @@
 					AND delstate=''
 					AND checkinfo=true
 					ORDER BY orderid DESC
-
+					limit 4
 				";
 				$dosql->Execute($s);
+				$tmp_i = 0;
 				while($row = $dosql->GetArray())
 				{
 					if($row['linkurl']=='' and $cfg_isreurl!='Y') $gourl = 'image_article.php?cid='.$row['classid'].'&id='.$row['id'];
 					else if($cfg_isreurl=='Y') $gourl = 'image_article-'.$row['classid'].'-'.$row['id'].'-1.html';
 					else $gourl = $row['linkurl'];
-				?>
-      <!--这块需要你写判断-->
-      <li class="first"> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga fl"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="#" title="<?php echo $row['title']; ?>" target="_blank" class="fb"><?php echo ReStrLen($row['title'],10,''); ?></a> <em class="iIcon hits"><?php echo $row['hits']; ?></em> </li>
-      <li> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="iIcon hits"><?php echo ReStrLen($row['title'],10,''); ?></a> </li>
-      <li> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="iIcon hits"><?php echo ReStrLen($row['title'],10,''); ?></a> </li>
-      <?php
+					
+					if ($tmp_i == 0) {
+						//第一个
+						?>
+						<li class="first"> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga fl"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="#" title="<?php echo $row['title']; ?>" target="_blank" class="fb"><?php echo ReStrLen($row['title'],10,''); ?></a> <em class="iIcon hits"><?php echo $row['hits']; ?></em> </li>
+						<?php
+					}else {
+						//非第一个
+						?>
+						<li> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="iIcon hits"><?php echo ReStrLen($row['title'],10,''); ?></a> </li>
+						<?php
+					}
+					
+					$tmp_i++;
 				}
-				?>
+		?>
     </ul>
   </div>
 </div>
