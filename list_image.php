@@ -34,15 +34,22 @@
     <div class="main_r_con">
       <ul>
         <?php
+		$condition = '';
+		if ($cid == '9') { //筛选只支持 装修案例 栏目
+			if (@$_REQUEST['sjfg']) $condition .= " AND `sjfg`='".$_REQUEST['sjfg']."'";
+			if (@$_REQUEST['kjxg']) $condition .= " AND `kjxg`='".$_REQUEST['kjxg']."'";
+			if (@$_REQUEST['zxmj']) $condition .= " AND `zxmj`='".$_REQUEST['zxmj']."'";
+			if (@$_REQUEST['bssj']) $condition .= " AND `bssj`='".$_REQUEST['bssj']."'";
+		}
 				if(!empty($keyword))
 				{
 					$keyword = htmlspecialchars($keyword);
 
-					$sql = "SELECT * FROM `#@__infoimg` WHERE (classid=$cid OR parentstr LIKE '%,$cid,%') AND mainid='$lang' AND title LIKE '%$keyword%' AND delstate='' AND checkinfo=true ORDER BY orderid DESC";
+					$sql = "SELECT * FROM `#@__infoimg` WHERE (classid=$cid OR parentstr LIKE '%,$cid,%') AND mainid='$lang' AND title LIKE '%$keyword%' AND delstate='' AND checkinfo=true".$condition." ORDER BY orderid DESC";
 				}
 				else
 				{
-					$sql = "SELECT * FROM `#@__infoimg` WHERE (classid=$cid OR parentstr LIKE '%,$cid,%') AND mainid='$lang' AND delstate='' AND checkinfo=true ORDER BY orderid DESC";
+					$sql = "SELECT * FROM `#@__infoimg` WHERE (classid=$cid OR parentstr LIKE '%,$cid,%') AND mainid='$lang' AND delstate='' AND checkinfo=true".$condition." ORDER BY orderid DESC";
 				}
 
 				$dopage->GetPage($sql,6);
