@@ -1,4 +1,29 @@
 <div class="Column-L">
+<?php
+@$sideCID = (int)$_REQUEST['cid'];
+//$root_class 为根节点 ; $cur_class 为当前节点
+$root_class = $cur_class = array();
+if ($sideCID > 0) {
+	$cur_class = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE id='".$sideCID."'");
+	$root_class =  getrootclass($sideCID);
+}
+
+//递归查询父级根节点
+function getrootclass($nowid) {
+	global $dosql;
+	$class_info = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE id='".$nowid."'");
+	if ($class_info['parentid'] > 0) {
+		$class_info = getrootclass($class_info['parentid']);
+	}
+	return $class_info;
+}
+$s = "SELECT * FROM `#@__infoclass`
+	WHERE (classid=$classid OR parentstr LIKE '%,$classid,%')
+	AND  mainid='$lang'
+	AND delstate=''
+	AND checkinfo=true
+	ORDER BY orderid DESC";
+?>
 <div class="ht1">关于我们</div>
 <ul class="CateList">
   <li><a href="#" class="current">公司简介</a></li>
