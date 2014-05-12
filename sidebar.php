@@ -4,8 +4,43 @@
 //$root_class 为根节点 ; $cur_class 为当前节点
 $root_class = $cur_class = array();
 if ($sideCID > 0) {
+	
 	$cur_class = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE id='".$sideCID."'");
 	$root_class =  getrootclass($sideCID);
+	
+	$class_arr = array('1','2','3','4','21');
+	if (!in_array($root_class['id'],$class_arr)) {
+		$root_class = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE id='1'");
+	}
+	
+	$infotype = array('single_article','list_article','list_image');
+	
+	echo '<div class="ht1">'.$root_class['classname'].'</div>';
+	echo '<ul class="CateList">';
+	$s = "SELECT * FROM `#@__infoclass` WHERE parentid=".$root_class['id']." AND checkinfo=true ORDER BY orderid";
+	$dosql->Execute($s); $tmpsql = new MySql(false);
+	while($son = $dosql->GetArray()) {
+		$tmp = (in_array($son['id'],explode(',',$cur_class['parentstr'])) || $son['id'] == $cur_class['id']) ? 'current' : '';
+		$gdsonstr = '';
+		$s = "SELECT * FROM `#@__infoclass` WHERE parentid=".$son['id']." AND checkinfo=true ORDER BY orderid";
+		$tmpsql->Execute($s);
+		while($gdson = $tmpsql->GetArray()) {
+			$gdtmp = (in_array($gdson['id'],explode(',',$cur_class['parentstr'])) || $gdson['id'] == $cur_class['id']) ? 'current' : '';
+			
+			if($gdson['linkurl']=='' and $cfg_isreurl!='Y') $gourl = $infotype[$gdson['infotype']].'.php?cid='.$gdson['id'];
+			else if($cfg_isreurl=='Y') $gourl =  $infotype[$gdson['infotype']].'-'.$gdson['id'].'-1.html';
+			else $gourl = $gdson['linkurl'];
+			
+			$gdsonstr .= '<li class="subCate"><a href="'.$gourl.'" title="'.$gdson['classname'].'" class="'.$gdtmp.'">+&nbsp;&nbsp;&nbsp;&nbsp;'.$gdson['classname'].'</a></li>';
+		}
+		
+		if($son['linkurl']=='' and $cfg_isreurl!='Y') $gourl = $infotype[$son['infotype']].'.php?cid='.$son['id'];
+		else if($cfg_isreurl=='Y') $gourl =  $infotype[$son['infotype']].'-'.$son['id'].'-1.html';
+		else $gourl = $son['linkurl'];
+		echo '<li><a href="'.$gourl.'" title="'.$son['classname'].'" class="'.$tmp.'">'.$son['classname'].'</a></li>';
+		echo $gdsonstr;
+	}
+	echo '</ul>';
 }
 
 //递归查询父级根节点
@@ -17,29 +52,9 @@ function getrootclass($nowid) {
 	}
 	return $class_info;
 }
-$s = "SELECT * FROM `#@__infoclass`
-	WHERE (classid=$classid OR parentstr LIKE '%,$classid,%')
-	AND  mainid='$lang'
-	AND delstate=''
-	AND checkinfo=true
-	ORDER BY orderid DESC";
+
 ?>
-<div class="ht1">关于我们</div>
-<ul class="CateList">
-  <li><a href="#" class="current">公司简介</a></li>
-   
-  <li><a href="#">走进道达尔工厂</a></li>
-   
-  <li><a href="#">公司文化</a></li>
-   
-  <li><a href="#">公司历程</a></li>
-   
-  <li><a href="#">公司荣誉</a></li>
-   
-  <li><a href="#">人才招聘</a></li>
-   
-  <li><a href="#">联系我们</a></li>
-  </ul>
+
 <div class="hr10"></div>
 
 
