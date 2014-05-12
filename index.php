@@ -146,7 +146,7 @@
 					if ($tmp_i == 0) {
 						//第一个
 						?>
-						<li class="first"> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga fl"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="#" title="<?php echo $row['title']; ?>" target="_blank" class="fb"><?php echo ReStrLen($row['title'],10,''); ?></a> <em class="iIcon hits"><?php echo $row['hits']; ?></em> </li>
+						<li class="first"> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga fl"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="<?php echo $gourl;?>" title="<?php echo $row['title']; ?>" target="_blank" class="fb"><?php echo ReStrLen($row['title'],10,''); ?></a> <em class="iIcon hits"><?php echo $row['hits']; ?></em> </li>
 						<?php
 					}else {
 						//非第一个
