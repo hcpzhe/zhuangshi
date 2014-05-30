@@ -692,7 +692,7 @@ h4 {font-size:12px;}
 
 /*首页中部*/
 .page_body{width:100%;height:auto;}
-.body_cont{width:982px; height:auto;margin:0 auto;overflow:hidden;background:url(../images/index_body_bg.gif) center top repeat-y;}
+.body_cont{width:982px; height:auto;margin:0 auto;overflow:hidden;/*background:url(../images/index_body_bg.gif) center top repeat-y;*/}
 
 
 /*家博工程*/
