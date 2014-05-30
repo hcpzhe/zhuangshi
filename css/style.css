@@ -804,7 +804,7 @@ h4 {font-size:12px;}
 .main_r_nav { width:815px; height:55px; background:url(../images/all_nav.jpg) 0 0 no-repeat;}
 .main_r_nav p { float:left; line-height:55px; margin-left:50px;color: #009BDE;
 font-family: "Microsoft YaHei","微软雅黑","宋体","Arial Narrow";font-size: 20px;} 
-.main_r_con { width:750px; margin:0 auto; padding-top:25px;overflow:auto;}
+.main_r_con { width:750px; margin:0 auto; padding-top:25px;}
 .main_r_con dd { display:block; width:750px; height:100%; margin:0 auto; line-height:20px; line-height:30px; color:#444444;}
 .main_r_con dd h3 { text-align:center; color:#444444;} 
 
@@ -813,6 +813,7 @@ font-family: "Microsoft YaHei","微软雅黑","宋体","Arial Narrow";font-size:
 .newslist li { margin-left:30px; border-bottom:1px dashed #999; line-height:35px; background:url(../images/dian.png) left no-repeat; padding-left:25px;}
 .newslist li span { float:right;}
 .newslist li a { color:#444444;}
+.newslist li a:hover { color:#09F;}
 
 /* 图片列表页 */
 .piclist  { width:750px; height:100%; margin:0 auto; padding-top:10px;}
@@ -1133,6 +1134,7 @@ h2 {
 	font-family: "Arial Black";
 	font-size: 10px;
 	margin-top: 20px;
+	clear:both;
 }
 .page_list a {
 	display: inline-block;

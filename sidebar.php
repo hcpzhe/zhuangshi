@@ -91,7 +91,7 @@ function getrootclass($nowid) {
 	?>
 </div>
 <div class="hr10"></div><div class="pSer">
-<a href="#" title="委托设计" target="_blank" rel="nofollow" class="order">委托设计</a>
-<a href="#" title="咨询留言" target="_blank" rel="nofollow" class="book">咨询留言</a>
+<a href="message.php" title="委托设计" target="_blank" rel="nofollow" class="order">委托设计</a>
+<a href="message.php" title="咨询留言" target="_blank" rel="nofollow" class="book">咨询留言</a>
 </div>
 <div class="hr10"></div></div>

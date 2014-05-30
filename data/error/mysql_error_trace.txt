@@ -302,3 +302,11 @@ Page: /wqmgr/
 Error: No database selected <br />Error sql: <font color='red'>SELECT * FROM `weblink` WHERE classid=1 AND checkinfo=true ORDER BY orderid,id DESC</font>
 
 
+Page: /lizhe/
+Error: 无法使用数据库
+
+
+Page: /
+Error: 无法使用数据库
+
+

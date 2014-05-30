@@ -20,8 +20,8 @@
 <body>
 <link type="text/css" rel="stylesheet" href="css/jiathis_share.css">
 <?php include('head.php');?>
-<div class="ad"> <a href="/book" class="pr fl service_tel"></a>
-  <div class="pr fr service_cont"> <a class="pr fl service_bnt s_bnt1" rel="nofollow" href="#"></a> <a class="pr fl service_bnt s_bnt2" rel="nofollow" href="#"></a> <a class="pr fl service_bnt s_bnt3" rel="nofollow" href="#"></a> <a class="pr fl service_bnt s_bnt4" rel="nofollow" href="#"></a>
+<div class="ad"> <a href="single_article.php?cid=34" class="pr fl service_tel"></a>
+  <div class="pr fr service_cont"> <a class="pr fl service_bnt s_bnt1" rel="nofollow" href="message.php"></a> <a class="pr fl service_bnt s_bnt2" rel="nofollow" href="message.php"></a> <a class="pr fl service_bnt s_bnt3" rel="nofollow" href="message.php"></a> <a class="pr fl service_bnt s_bnt4" rel="nofollow" href="message.php"></a>
     <div class="pr fl service_links"> <a class="pa service_wb" style="height:120px;" rel="nofollow" target="_blank" href="#"></a> <a class="pa service_email" style="height:120px;" rel="nofollow" href="#"></a> </div>
   </div>
 </div>

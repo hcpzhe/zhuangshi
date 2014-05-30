@@ -105,7 +105,7 @@
 					else if($cfg_isreurl=='Y') $gourl = 'image_article-'.$row['classid'].'-'.$row['id'].'-1.html';
 					else $gourl = $row['linkurl'];
 				?>
-          <li style="overflow: hidden; float: left; width: 150px; height: 175px;"> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" rel="nofollow" class="f14"><?php echo $row['title']; ?></a><cite>[<?php echo $row['size']; ?>]</cite> <a rel="nofollow" href="#" title="预约" target="_blank" class="order">预约</a> <a href="#" rel="nofollow" target="_blank" class="book">咨询</a> </li>
+          <li style="overflow: hidden; float: left; width: 150px; height: 175px;"> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" rel="nofollow" class="f14"><?php echo $row['title']; ?></a><cite>[<?php echo $row['size']; ?>]</cite> <a rel="nofollow" href="message.php" title="预约" target="_blank" class="order">预约</a> <a href="message.php" rel="nofollow" target="_blank" class="book">咨询</a> </li>
           <?php
 				}
 				?>
@@ -117,8 +117,8 @@
   <div class="iColumn-R iTab">
     <div class="ht"><cite class="one hover">视频样板房</cite><cite>户型解析</cite></div>
     <ul>
-      <li class="first"> <a href="#" title="#" target="_blank" class="imga fl"><img src="images/thumb_1485.jpg" alt="#"></a> <a href="#" title="#" target="_blank" class="fb">常州道达尔装饰高清样板房</a> <em class="iIcon hits">211</em> </li>
-      <li> <em class="fr">[430]</em> <a href="#" title="#" target="_blank" class="iIcon hits">茂业样板房视频</a> </li>
+      <li class="first"> <a href="#" title="#" target="_blank" class="imga fl"><img src="images/thumb_1485.jpg" alt="#"></a> <a href="#" title="#" target="_blank" class="fb">方艺装饰高清样板房</a> <em class="iIcon hits">211</em> </li>
+      <li> <em class="fr">[430]</em> <a href="#" title="#" target="_blank" class="iIcon hits">世纪华阳样板房视频</a> </li>
       <li> <em class="fr">[346]</em> <a href="#" title="#" target="_blank" class="iIcon hits">唯美韩式美宅</a> </li>
       <li> <em class="fr">[299]</em> <a href="#" title="#" target="_blank" class="iIcon hits">标准水电工程</a> </li>
     </ul>
@@ -162,7 +162,7 @@
   </div>
 </div>
 <div class="hr10"></div>
-<div class="Column tc"><a href="#" title="把客户的家当作自己的家" target="_blank" class="imga"><img src="images/6e95253f00b92475.jpg" alt="把客户的家当作自己的家" border="0/"></a></div>
+<div class="Column tc"><a href="#" title="把客户的家当作自己的家" target="_blank" class="imga"><img src="images/add.jpg" alt="把客户的家当作自己的家" border="0/"></a></div>
 <div class="body_cont pr"> 
   <script type="text/javascript">
 $(document).ready(function(){
@@ -201,22 +201,22 @@ $(document).ready(function(){
   <!--方艺工程左-->
   <div class="engineering_tt pr fl"> <em class="fyahei"> 方艺工程 <span> PROGRAM</span> </em> </div>
   <div class="pr fl diagram">
-    <h3 class="tl"><a href="#" class="pr fr more"></a>工艺图解</h3>
+    <h3 class="tl"><a href="list_image.php?cid=15" class="pr fr more"></a>工艺图解</h3>
     <ul class="pr fl">
-      <li><a class="pr fl" target="_blank" href="#"></a></li>
-      <li><a class="pr fl" target="_blank" href="#"></a></li>
-      <li><a class="pr fl" target="_blank" href="#"></a></li>
-      <li><a class="pr fl" target="_blank" href="#"></a></li>
+      <li><a class="pr fl" target="_blank" href="list_image.php?cid=28"></a></li>
+      <li><a class="pr fl" target="_blank" href="list_image.php?cid=29"></a></li>
+      <li><a class="pr fl" target="_blank" href="list_image.php?cid=30"></a></li>
+      <li><a class="pr fl" target="_blank" href="list_image.php?cid=31"></a></li>
     </ul>
   </div>
   <!--方艺工程中-->
   <div class="work_place pr fl">
-    <p class="work_place_tt pr fl tl"> <a href="#" class="pr fr more"></a></p>
+    <p class="work_place_tt pr fl tl"></p>
     <ul class="pr fl">
-      <li class="first"> <a href="#" title="#" target="_blank"><img src="images/thumb_9079.jpg" alt="#" border="0"></a>
+      <li class="first"> <a href="#" title="#" target="_blank"><img src="images/flv1.jpg" alt="#" border="0"></a>
         <p><a href="#" title="#" target="_blank">油漆工艺：丹麦风格白擦金工艺</a></p>
       </li>
-      <li> <a href="#" title="#" target="_blank"><img src="images/thumb_9078.jpg" alt="#" border="0"></a>
+      <li> <a href="#" title="#" target="_blank"><img src="images/flv1.jpg" alt="#" border="0"></a>
         <p><a href="#" title="#" target="_blank">油漆工艺：幻彩橱柜风格</a></p>
       </li>
       <li> <a href="#" title="#" target="_blank"><img src="images/thumb_8415.jpg" alt="#" border="0"></a>
@@ -232,13 +232,13 @@ $(document).ready(function(){
   </div>
   <!--服务小区-->
   <div class="new_orders pr fr">
-    <p class="new_orders_tt pr fl tl"> <a href="#" class="pr fr" rel="nofollow">我要装修设计</a></p>
+    <p class="new_orders_tt pr fl tl"> <!--<a href="#" class="pr fr" rel="nofollow">我要装修设计</a>--></p>
     <p class="new_orders_msg pr fl tc">服务小区288 个  服务业主385 人</p>
     <ul class="pr fl">
       <?php
 				$classid = 27;
 				$s = "
-					SELECT linkurl,classid,id,posttime,title,colorval,boldval,picurl,content
+					SELECT linkurl,classid,id,posttime,title,colorval,boldval,picurl,content,mianji,yusuan
 					FROM `#@__infolist`
 					WHERE (classid=$classid or parentid=$classid)
 					AND  mainid='$lang'
@@ -266,12 +266,12 @@ $(document).ready(function(){
 <div class="Column" style="margin-top:15px;"> 
   <!--业主评价-->
   <div class="iColumn-L">
-    <div class="iTitle"> <a href="list_article.php?cid=32" rel="nofollow" target="_blank" class="iMore">更多&gt;&gt;</a> <em class="fyahei">业主评价<span>&nbsp;&nbsp;COMMENT</span></em> </div>
+    <div class="iTitle"> <a href="list_image.php?cid=32" rel="nofollow" target="_blank" class="iMore">更多&gt;&gt;</a> <em class="fyahei">业主评价<span>&nbsp;&nbsp;COMMENT</span></em> </div>
     <ul class="iThink fl">
       <?php
 				$classid = 32;
 				$s = "
-					SELECT id,linkurl,classid,picurl,title,size,content
+					SELECT id,linkurl,classid,picurl,title,content,posttime
 					FROM `#@__infoimg`
 					WHERE (classid=$classid OR parentstr LIKE '%,$classid,%')
 					AND  mainid='$lang'
@@ -288,7 +288,7 @@ $(document).ready(function(){
 					else $gourl = $row['linkurl'];
 				?>
       <li> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga fl"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>"></a> <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="imga f14"><?php echo ReStrLen($row['title'],10,''); ?></a>
-        <p><?php echo ReStrLen($row['content'],10,''); ?></p>
+        <p><?php echo ReStrLen($row['content'],40,'...'); ?></p>
         <a href="<?php echo $gourl; ?>" title="<?php echo $row['title']; ?>" target="_blank" class="iView fl">VIEW</a> <em class="iIcon time"><?php echo date("y-m-d",$row['posttime']); ?></em> </li>
       <?php
 				}
@@ -412,7 +412,7 @@ $(document).ready(function(){
         <input class="button" id="_phpok_submit" value="预约设计" type="submit">
       </div>
     </form>
-    <script type="text/javascript" src="js/php.js"></script> 
+  <script type="text/javascript" src="js/jquery1.min.js"></script>
     <script type="text/javascript">
 			
 function to_submit()
@@ -448,16 +448,16 @@ function to_submit()
 <div class="brands pr"> <span class="pr fl tl"><em class="fyahei"> 合作品牌 <span> COOPERATION BRAND</span> </em> </span>
   <ul class="pr fl pic_link">
     <?php
-				$classid = 4;
+				$classid = 33;
 				$s = "
-					SELECT id,linkurl,classid,picurl,title,size
+					SELECT id,linkurl,classid,picurl,title
 					FROM `#@__infoimg`
 					WHERE (classid=$classid OR parentstr LIKE '%,$classid,%')
 					AND  mainid='$lang'
 					AND delstate=''
 					AND checkinfo=true
 					ORDER BY orderid DESC
-
+					LIMIT 0,10
 				";
 				$dosql->Execute($s);
 				while($row = $dosql->GetArray())
