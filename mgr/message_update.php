@@ -16,13 +16,21 @@ $row = $dosql->GetOne("SELECT * FROM `#@__message` WHERE id=$id");
 <form name="form" id="form" method="post" action="message_save.php" onsubmit="return cfm_msg();">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form_table">
 		<tr>
-			<td width="25%" height="35" align="right">昵　称：</td>
+			<td width="25%" height="35" align="right">姓　名：</td>
 			<td width="75%"><input type="text" name="nickname" id="nickname" class="class_input" value="<?php echo $row['nickname'] ?>" />
 				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
 		<tr>
 			<td height="35" align="right">联系方式：</td>
 			<td><input type="text" name="contact" id="contact" class="class_input" value="<?php echo $row['contact'] ?>" /></td>
+		</tr>
+		<tr>
+			<td height="35" align="right">留言类型：</td>
+			<td><input type="text" name="msgtype" id="msgtype" class="class_input" value="<?php echo $row['msgtype'] ?>" /></td>
+		</tr>
+		<tr>
+			<td height="35" align="right">预　算：</td>
+			<td><input type="text" name="yusuan" id="yusuan" class="class_input" value="<?php echo $row['yusuan'] ?>" /></td>
 		</tr>
 		<tr class="nb">
 			<td height="198" align="right">留言内容：</td>

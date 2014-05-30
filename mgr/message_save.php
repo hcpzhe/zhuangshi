@@ -16,7 +16,7 @@ if($action == 'add')
 	if(!isset($rtop)) $rtop = '';
 	$posttime = GetMkTime($posttime);
 
-	$sql = "INSERT INTO `$tbname` (nickname, contact, content, orderid, posttime, htop, rtop, checkinfo, ip) VALUES ('$nickname', '$contact', '$content', '$orderid', '$posttime', '$htop', '$rtop', '$checkinfo', '$ip')";
+	$sql = "INSERT INTO `$tbname` (nickname, contact, msgtype, yusuan, content, orderid, posttime, htop, rtop, checkinfo, ip) VALUES ('$nickname', '$contact', '$msgtype', '$yusuan', '$content', '$orderid', '$posttime', '$htop', '$rtop', '$checkinfo', '$ip')";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");
@@ -32,7 +32,7 @@ else if($action == 'update')
 	if(!isset($rtop)) $rtop = '';
 	$posttime = GetMkTime($posttime);
 
-	$sql = "UPDATE `$tbname` SET nickname='$nickname', contact='$contact', content='$content', orderid='$orderid', posttime='$posttime', htop='$htop', rtop='$rtop', checkinfo='$checkinfo' WHERE id=$id";
+	$sql = "UPDATE `$tbname` SET nickname='$nickname', contact='$contact', msgtype='$msgtype', yusuan='$yusuan', content='$content', orderid='$orderid', posttime='$posttime', htop='$htop', rtop='$rtop', checkinfo='$checkinfo' WHERE id=$id";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");

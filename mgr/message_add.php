@@ -21,6 +21,14 @@
 			<td height="35" align="right">联系方式：</td>
 			<td><input type="text" name="contact" id="contact" class="class_input" /></td>
 		</tr>
+		<tr>
+			<td height="35" align="right">留言类型：</td>
+			<td><input type="text" name="msgtype" id="msgtype" class="class_input" /></td>
+		</tr>
+		<tr>
+			<td height="35" align="right">预　算：</td>
+			<td><input type="text" name="yusuan" id="yusuan" class="class_input" /></td>
+		</tr>
 		<tr class="nb">
 			<td height="198" align="right">留言内容：</td>
 			<td><textarea name="content" id="content"></textarea>

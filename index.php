@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="js/minify.js"></script>
 <script src="js/logger.js"></script>
+<script type="text/javascript" src="js/RSsubmit.js"></script>
 <link type="text/css" rel="stylesheet" href="css/bdsstyle.css">
 <link type="text/css" rel="stylesheet" href="css/jiathis_share.css">
 </head>
@@ -304,10 +305,10 @@ $(document).ready(function(){
 			}
      </script>
     <div class="ht fyahei"> <span><a href="javascript:void(0);" onmousemove="change(1)" class="spana">预约装修</a> <a href="javascript:void(0);" onmousemove="change(2)">预约参观</a></span> </div>
-    <form method="post" action="?c=post&amp;f=setok&amp;module_id=119&amp;totype=alert" onsubmit="return to_submit();" class="qwe" id="news1" style="display:block;">
-      <input id="tourl" name="tourl" value="goback" type="hidden">
-      <input id="tomsg" name="tomsg" value="预约成功，我们将通过电话联系您！" type="hidden">
-      <input id="subject" name="subject" value="来源：首页客户订单" type="hidden">
+    <form name="zhuangxiu" method="post" action="msg_ajax_save.php" onsubmit="return to_submit(this);" class="qwe" id="news1" style="display:block;">
+      <input name="action" value="add" type="hidden">
+      <input name="tomsg" value="预约成功，我们将通过电话联系您！" type="hidden">
+      <input name="msgtype" value="预约装修" type="hidden">
       <div class="table ext cls_contact">
         <div class="left"><span class="red">*</span> 称呼：</div>
         <div class="right">
@@ -315,7 +316,7 @@ $(document).ready(function(){
             <table cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <td><input class="input-text" name="contact" id="contact" style="width:150px;" type="text"></td>
+                  <td><input class="input-text" name="nickname" style="width:150px;" type="text"></td>
                 </tr>
               </tbody>
             </table>
@@ -330,7 +331,7 @@ $(document).ready(function(){
             <table cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <td><input class="input-text" name="phone" id="phone" style="width:150px;" type="text"></td>
+                  <td><input class="input-text" name="contact" style="width:150px;" type="text"></td>
                 </tr>
               </tbody>
             </table>
@@ -345,7 +346,7 @@ $(document).ready(function(){
             <table cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <td><input class="input-text" name="cost" id="cost" style="width:150px;" type="text"></td>
+                  <td><input class="input-text" name="yusuan" style="width:150px;" type="text"></td>
                 </tr>
               </tbody>
             </table>
@@ -355,13 +356,13 @@ $(document).ready(function(){
       </div>
       <div class="table">
         <div class="left">&nbsp;</div>
-        <input class="button" id="_phpok_submit" value="预约" type="submit">
+        <input class="button" value="预约装修" type="submit">
       </div>
     </form>
-    <form method="post" action="?c=post&amp;f=setok&amp;module_id=119&amp;totype=alert" onsubmit="return to_submit();" class="qwe" id="news2" style="display:none;">
-      <input id="tourl" name="tourl" value="goback" type="hidden">
-      <input id="tomsg" name="tomsg" value="预约成功，我们将通过电话联系您！" type="hidden">
-      <input id="subject" name="subject" value="来源：首页客户订单" type="hidden">
+    <form name="canguan" method="post" action="msg_ajax_save.php" onsubmit="return to_submit(this);" class="qwe" id="news2" style="display:none;">
+      <input name="action" value="add" type="hidden">
+      <input name="tomsg" value="预约成功，我们将通过电话联系您！" type="hidden">
+      <input name="msgtype" value="预约参观" type="hidden">
       <div class="table ext cls_contact">
         <div class="left"><span class="red">*</span> 姓名：</div>
         <div class="right">
@@ -369,7 +370,7 @@ $(document).ready(function(){
             <table cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <td><input class="input-text" name="contact" id="contact" style="width:150px;" type="text"></td>
+                  <td><input class="input-text" name="nickname" style="width:150px;" type="text"></td>
                 </tr>
               </tbody>
             </table>
@@ -384,7 +385,7 @@ $(document).ready(function(){
             <table cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <td><input class="input-text" name="phone" id="phone" style="width:150px;" type="text"></td>
+                  <td><input class="input-text" name="contact" style="width:150px;" type="text"></td>
                 </tr>
               </tbody>
             </table>
@@ -399,7 +400,7 @@ $(document).ready(function(){
             <table cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <td><input class="input-text" name="cost" id="cost" style="width:150px;" type="text"></td>
+                  <td><input class="input-text" name="yusuan" style="width:150px;" type="text"></td>
                 </tr>
               </tbody>
             </table>
@@ -409,39 +410,35 @@ $(document).ready(function(){
       </div>
       <div class="table">
         <div class="left">&nbsp;</div>
-        <input class="button" id="_phpok_submit" value="预约设计" type="submit">
+        <input class="button" value="预约参观" type="submit">
       </div>
     </form>
-  <script type="text/javascript" src="js/jquery1.min.js"></script>
     <script type="text/javascript">
 			
-function to_submit()
+function to_submit(thisform)
 {
-	var subject = getid("subject").value;
-	if(!subject)
+	if(!thisform.msgtype.value)
 	{
 		alert("主题不允许为空");
-		getid("subject").focus();
+		thisform.msgtype.focus();
 		return false;
 	}
-						var contact = getid("contact").value;
-				if(!contact)
-		{
-			alert("请填写您的姓名");
-			getid("contact").focus();
-			return false;
-		}
-							var phone = getid("phone").value;
-				if(!phone)
-		{
-			alert("手机号码未填写或填写错误");
-			getid("phone").focus();
-			return false;
-		}
-					getid("_phpok_submit").disabled = true;
-	return true;
+	if(!thisform.nickname.value){
+		alert("请填写您的姓名");
+		thisform.nickname.focus();
+		return false;
+	}
+	
+	if(!thisform.contact.value){
+		alert("手机号码未填写或填写错误");
+		thisform.contact.focus();
+		return false;
+	}
+	//getid("_phpok_submit").disabled = true;
+	$(thisform).RSsubmit({success_alert:true});
+	return false;
 }
-</script> 
+</script>
   </div>
 </div>
 <!--合作品牌-->

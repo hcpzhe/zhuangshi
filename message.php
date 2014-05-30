@@ -5,7 +5,7 @@ if(isset($action) and $action=='add')
 {
 	if(empty($nickname))
 	{
-		ShowMsg('昵称不能为空！The nickname can not be empty!','message.php');
+		ShowMsg('姓名不能为空！The name can not be empty!','message.php');
 		exit();
 	}
 	

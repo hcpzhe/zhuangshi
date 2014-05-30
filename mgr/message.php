@@ -14,13 +14,15 @@
 <form name="form" id="form" method="post" action="message_save.php">
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mgr_table">
 		<tr align="center" class="thead">
-			<td width="5%" height="30" align="center"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);"></td>
-			<td width="5%">编号</td>
-			<td width="25%" align="left">留言内容</td>
-			<td width="18%">提交时间</td>
-			<td width="12%">IP地址</td>
-			<td width="12%">昵称</td>
-			<td width="23%">操作</td>
+			<td width="3%" height="30" align="center"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);"></td>
+			<td width="4%">编号</td>
+			<td width="8%">姓名</td>
+			<td width="8%">联系方式</td>
+			<td width="8%">类型</td>
+			<td width="8%">预算</td>
+			<td width="23%" align="left">留言内容</td>
+			<td width="17%">提交时间</td>
+			<td width="21%">操作</td>
 		</tr>
 		<?php
 		$dopage->GetPage("SELECT * FROM `#@__message`");
@@ -49,10 +51,12 @@
 		<tr align="center" class="mgr_tr">
 			<td height="30"><input type="checkbox" name="checkid[]" id="checkid[]" value="<?php echo $row['id']; ?>" /></td>
 			<td><?php echo $row['id']; ?></td>
+			<td><?php echo $row['nickname']; ?></td>
+			<td><?php echo $row['contact']; ?></td>
+			<td><?php echo $row['msgtype']; ?></td>
+			<td><?php echo $row['yusuan']; ?></td>
 			<td align="left" class="titles"><?php echo $content; ?></td>
 			<td class="number"><?php echo GetDateTime($row['posttime']); ?></td>
-			<td><?php echo $row['ip']; ?></td>
-			<td><?php echo $row['nickname']; ?></td>
 			<td class="action"><span id="checkinfo<?php echo $row['id']; ?>">[<a href="message_save.php?id=<?php echo $row['id']; ?>&action=check&checkinfo=<?php echo $row['checkinfo']; ?>" title="点击进行审核与未审操作"><?php echo $checkinfo; ?></a>]</span><span>[<a href="javascript:;" onclick="ShowReWin(<?php echo $row['id'] ?>)" rel="<?php echo $row['recont']; ?>" id="recont_<?php echo $row['id'] ?>">回复</a>]</span><span>[<a href="message_update.php?id=<?php echo $row['id']; ?>">修改</a>]</span><span>[<a href="message_save.php?action=del2&id=<?php echo $row['id']; ?>" onclick="return ConfDel(0);">删除</a>]</span></td>
 		</tr>
 		<?php
